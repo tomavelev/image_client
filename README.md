@@ -1,8 +1,8 @@
 # image_client
 
-A new Flutter project for consuming images and marking them as favorites.
+A new Flutter project for consuming images and marking them as favorites - after being request - Bootstrapped for a day (and a half).
 
-As Source the project uses pixabay.
+As Image Source the project uses pixabay.
 
 ## Getting Started
 
