@@ -471,19 +471,26 @@ abstract class _AddToFavorite implements DetailEvent {
 mixin _$DetailState {
   PixabayImage? get image => throw _privateConstructorUsedError;
   bool get isFavorite => throw _privateConstructorUsedError;
+  LoadingWithTag? get loading => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PixabayImage? image, bool isFavorite) initial,
+    required TResult Function(
+            PixabayImage? image, bool isFavorite, LoadingWithTag? loading)
+        initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PixabayImage? image, bool isFavorite)? initial,
+    TResult? Function(
+            PixabayImage? image, bool isFavorite, LoadingWithTag? loading)?
+        initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PixabayImage? image, bool isFavorite)? initial,
+    TResult Function(
+            PixabayImage? image, bool isFavorite, LoadingWithTag? loading)?
+        initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -517,9 +524,10 @@ abstract class $DetailStateCopyWith<$Res> {
           DetailState value, $Res Function(DetailState) then) =
       _$DetailStateCopyWithImpl<$Res, DetailState>;
   @useResult
-  $Res call({PixabayImage? image, bool isFavorite});
+  $Res call({PixabayImage? image, bool isFavorite, LoadingWithTag? loading});
 
   $PixabayImageCopyWith<$Res>? get image;
+  $LoadingWithTagCopyWith<$Res>? get loading;
 }
 
 /// @nodoc
@@ -539,6 +547,7 @@ class _$DetailStateCopyWithImpl<$Res, $Val extends DetailState>
   $Res call({
     Object? image = freezed,
     Object? isFavorite = null,
+    Object? loading = freezed,
   }) {
     return _then(_value.copyWith(
       image: freezed == image
@@ -549,6 +558,10 @@ class _$DetailStateCopyWithImpl<$Res, $Val extends DetailState>
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
+      loading: freezed == loading
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as LoadingWithTag?,
     ) as $Val);
   }
 
@@ -565,6 +578,20 @@ class _$DetailStateCopyWithImpl<$Res, $Val extends DetailState>
       return _then(_value.copyWith(image: value) as $Val);
     });
   }
+
+  /// Create a copy of DetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LoadingWithTagCopyWith<$Res>? get loading {
+    if (_value.loading == null) {
+      return null;
+    }
+
+    return $LoadingWithTagCopyWith<$Res>(_value.loading!, (value) {
+      return _then(_value.copyWith(loading: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -575,10 +602,12 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({PixabayImage? image, bool isFavorite});
+  $Res call({PixabayImage? image, bool isFavorite, LoadingWithTag? loading});
 
   @override
   $PixabayImageCopyWith<$Res>? get image;
+  @override
+  $LoadingWithTagCopyWith<$Res>? get loading;
 }
 
 /// @nodoc
@@ -596,6 +625,7 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({
     Object? image = freezed,
     Object? isFavorite = null,
+    Object? loading = freezed,
   }) {
     return _then(_$InitialImpl(
       image: freezed == image
@@ -606,6 +636,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
+      loading: freezed == loading
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as LoadingWithTag?,
     ));
   }
 }
@@ -613,17 +647,19 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl implements _Initial {
-  const _$InitialImpl({this.image, this.isFavorite = false});
+  const _$InitialImpl({this.image, this.isFavorite = false, this.loading});
 
   @override
   final PixabayImage? image;
   @override
   @JsonKey()
   final bool isFavorite;
+  @override
+  final LoadingWithTag? loading;
 
   @override
   String toString() {
-    return 'DetailState.initial(image: $image, isFavorite: $isFavorite)';
+    return 'DetailState.initial(image: $image, isFavorite: $isFavorite, loading: $loading)';
   }
 
   @override
@@ -633,11 +669,12 @@ class _$InitialImpl implements _Initial {
             other is _$InitialImpl &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.isFavorite, isFavorite) ||
-                other.isFavorite == isFavorite));
+                other.isFavorite == isFavorite) &&
+            (identical(other.loading, loading) || other.loading == loading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, image, isFavorite);
+  int get hashCode => Object.hash(runtimeType, image, isFavorite, loading);
 
   /// Create a copy of DetailState
   /// with the given fields replaced by the non-null parameter values.
@@ -650,27 +687,33 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PixabayImage? image, bool isFavorite) initial,
+    required TResult Function(
+            PixabayImage? image, bool isFavorite, LoadingWithTag? loading)
+        initial,
   }) {
-    return initial(image, isFavorite);
+    return initial(image, isFavorite, loading);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PixabayImage? image, bool isFavorite)? initial,
+    TResult? Function(
+            PixabayImage? image, bool isFavorite, LoadingWithTag? loading)?
+        initial,
   }) {
-    return initial?.call(image, isFavorite);
+    return initial?.call(image, isFavorite, loading);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PixabayImage? image, bool isFavorite)? initial,
+    TResult Function(
+            PixabayImage? image, bool isFavorite, LoadingWithTag? loading)?
+        initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(image, isFavorite);
+      return initial(image, isFavorite, loading);
     }
     return orElse();
   }
@@ -705,13 +748,17 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements DetailState {
-  const factory _Initial({final PixabayImage? image, final bool isFavorite}) =
-      _$InitialImpl;
+  const factory _Initial(
+      {final PixabayImage? image,
+      final bool isFavorite,
+      final LoadingWithTag? loading}) = _$InitialImpl;
 
   @override
   PixabayImage? get image;
   @override
   bool get isFavorite;
+  @override
+  LoadingWithTag? get loading;
 
   /// Create a copy of DetailState
   /// with the given fields replaced by the non-null parameter values.

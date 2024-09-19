@@ -4,8 +4,8 @@ import 'package:image_client/common/extensions/translate_extensions.dart';
 import 'package:image_client/common/model/error/error_model.dart';
 import 'package:image_client/common/model/pixabay_image.dart';
 import 'package:image_client/common/views/bottom_loader.dart';
+import 'package:image_client/common/views/image_grid_view.dart';
 import 'package:image_client/home/bloc/home_bloc.dart';
-import 'package:image_client/home/view/image_tile.dart';
 import 'package:image_client/home/view/search_field.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -52,11 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           actions: [
-            InkWell(
-              onTap: () {
-                //TODO go to favorite
-              },
-              child: const Icon(Icons.favorite),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () => Navigator.of(context).pushNamed("/fav"),
+                child: const Icon(Icons.favorite),
+              ),
             )
           ],
         ),
@@ -67,12 +68,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 selector: (state) => state.data,
                 builder: (context, state) {
                   if (state != null) {
-                    return ListView.builder(
-                      controller: _scrollController,
-                      itemBuilder: (context, index) => ImageTile(
-                        state[index],
-                      ),
-                      itemCount: state.length,
+                    if (state.isEmpty) {
+                      return const Center(
+                        child: Text("No Images Found"),
+                      );
+                    }
+                    return ImageGridView(
+                      data: state,
+                      scrollController: _scrollController,
                     );
                   }
                   return const SizedBox();

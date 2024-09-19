@@ -1,23 +1,23 @@
 class FavoriteService {
   //ideally this would be some data storage. Lets keep it short.
-  Set<int> favorites = {};
+  final Set<int> _favorites = {};
 
   Future<bool> isFavorite(int id) async {
     await Future.delayed(const Duration(seconds: 1));
-    return favorites.contains(id);
+    return _favorites.contains(id);
   }
 
   Future<bool> add(int id) async {
     await Future.delayed(const Duration(seconds: 1));
-    return favorites.add(id);
+    return _favorites.add(id);
   }
 
   Future<bool> remove(int id) async {
     await Future.delayed(const Duration(seconds: 1));
-    return favorites.remove(id);
+    return _favorites.remove(id);
   }
 
   Future<Set<int>> fetch() {
-    return Future.value(favorites);
+    return Future.value(_favorites);
   }
 }

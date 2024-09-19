@@ -20,6 +20,9 @@ class ImageService {
   }
 
   Future<ImageSearchResponse> fetch(Set<int> set) {
+    if (set.isEmpty) {
+      return Future.value(const ImageSearchResponse(hits: [], total: 0));
+    }
     return _imageRepository.fetch(
       ids: set,
     );
