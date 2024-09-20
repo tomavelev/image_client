@@ -40,23 +40,24 @@ The app's code is organized in layers
 - I18n (execute 'flutter gen-l10n' after each translation change (in lib/l10n/*.arb))
 
 The code structure is inspired by the [Rx Bloc](https://pub.dev/packages/rx_bloc) ecosystem with few
-replacements.
+replacements for less code generation and simplicity.
 
 - [GetIt](https://pub.dev/packages/get_it) is used for DI instead
   of [provider](https://pub.dev/packages/provider)
 - [BloC](https://pub.dev/packages/bloc)  is used instead of
   the [flutter_rx_bloc](https://pub.dev/packages/flutter_rx_bloc)
 - it uses [freezed](https://pub.dev/packages/freezed) for from/to json, equals, copyWith
+- Navigator 1.0 - instead of [go_router](https://pub.dev/packages/go_router)
 - ...
 
 ## Testing
 
 The Project includes samples for
 
-- Widget Tests - for testing the presence in the tree - the UI elements you are building.
-- Golden Tests - test pixel perfect designs
-- Unit Tests - test small functionality that has strict input-output requirements. Great Examples
+- [Widget Tests](https://github.com/tomavelev/image_client/tree/master/test/widget_tests) - for testing the presence in the tree - the UI elements you are building.
+- [Golden Tests](https://github.com/tomavelev/image_client/tree/master/test/golden_tests) - test pixel perfect designs
+- [Unit Tests](https://github.com/tomavelev/image_client/tree/master/test/unit_tests) - test small functionality that has strict input-output requirements. Great Examples
   may be - calculations, encryption, etc
-- BloC Tests - - In many cases the business logic is hard to be extracted as Services. Unit tests -
-  verify expected state of **BlocState** during BloC Events.
+- [BloC Tests](https://github.com/tomavelev/image_client/tree/master/test/bloc_tests) - In many cases the business logic is hard to be extracted as Services. Bloc tests -
+  verify expected state of **BlocState** during/before/after BloC Events.
 
