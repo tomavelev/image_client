@@ -21,6 +21,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>((event, emit) {});
     on<_Fetch>(_fetch);
     on<_FetchMore>(_fetchMore);
+    on<_RemoveSuggestion>(_removeSuggestion);
   }
 
   Future<void> _fetchMore(_FetchMore event, Emitter<HomeState> emit) async {
@@ -45,11 +46,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
     if (q != state.lastQ) {
       page = 1;
+      final suggestions = Set.of(state.suggestions ?? <String>{});
+      if (q.isNotEmpty) {
+        suggestions.add(q);
+      }
+
       emit(state.copyWith(
         loading: true,
         error: null,
         data: null,
         lastQ: q,
+        suggestions: suggestions,
       ));
     } else {
       emit(state.copyWith(
@@ -61,7 +68,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
 
     try {
-      var imageResponse =
+      final imageResponse =
           await _imageService.search(query: q, page: page.toInt());
 
       emit(state.copyWith(
@@ -81,5 +88,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         lastQ: q,
       ));
     }
+  }
+
+  //TODO the whole suggestion stuff may be moved out of Home Bloc to a separate component (like a library of components) with its own BloC, etc
+  Future<void> _removeSuggestion(
+      _RemoveSuggestion event, Emitter<HomeState> emit) async {
+
+    final suggestions = Set.of(state.suggestions ?? <String>{});
+    suggestions.remove(event.suggestion);
+    emit(state.copyWith(suggestions: suggestions));
   }
 }

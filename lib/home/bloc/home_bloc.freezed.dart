@@ -19,6 +19,7 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String suggestion) removeSuggestion,
     required TResult Function(String? q) fetch,
     required TResult Function() fetchMore,
   }) =>
@@ -26,6 +27,7 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String suggestion)? removeSuggestion,
     TResult? Function(String? q)? fetch,
     TResult? Function()? fetchMore,
   }) =>
@@ -33,6 +35,7 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String suggestion)? removeSuggestion,
     TResult Function(String? q)? fetch,
     TResult Function()? fetchMore,
     required TResult orElse(),
@@ -41,6 +44,7 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_RemoveSuggestion value) removeSuggestion,
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_FetchMore value) fetchMore,
   }) =>
@@ -48,6 +52,7 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_RemoveSuggestion value)? removeSuggestion,
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_FetchMore value)? fetchMore,
   }) =>
@@ -55,6 +60,7 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_RemoveSuggestion value)? removeSuggestion,
     TResult Function(_Fetch value)? fetch,
     TResult Function(_FetchMore value)? fetchMore,
     required TResult orElse(),
@@ -124,6 +130,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String suggestion) removeSuggestion,
     required TResult Function(String? q) fetch,
     required TResult Function() fetchMore,
   }) {
@@ -134,6 +141,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String suggestion)? removeSuggestion,
     TResult? Function(String? q)? fetch,
     TResult? Function()? fetchMore,
   }) {
@@ -144,6 +152,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String suggestion)? removeSuggestion,
     TResult Function(String? q)? fetch,
     TResult Function()? fetchMore,
     required TResult orElse(),
@@ -158,6 +167,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_RemoveSuggestion value) removeSuggestion,
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_FetchMore value) fetchMore,
   }) {
@@ -168,6 +178,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_RemoveSuggestion value)? removeSuggestion,
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_FetchMore value)? fetchMore,
   }) {
@@ -178,6 +189,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_RemoveSuggestion value)? removeSuggestion,
     TResult Function(_Fetch value)? fetch,
     TResult Function(_FetchMore value)? fetchMore,
     required TResult orElse(),
@@ -191,6 +203,162 @@ class _$StartedImpl implements _Started {
 
 abstract class _Started implements HomeEvent {
   const factory _Started() = _$StartedImpl;
+}
+
+/// @nodoc
+abstract class _$$RemoveSuggestionImplCopyWith<$Res> {
+  factory _$$RemoveSuggestionImplCopyWith(_$RemoveSuggestionImpl value,
+          $Res Function(_$RemoveSuggestionImpl) then) =
+      __$$RemoveSuggestionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String suggestion});
+}
+
+/// @nodoc
+class __$$RemoveSuggestionImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$RemoveSuggestionImpl>
+    implements _$$RemoveSuggestionImplCopyWith<$Res> {
+  __$$RemoveSuggestionImplCopyWithImpl(_$RemoveSuggestionImpl _value,
+      $Res Function(_$RemoveSuggestionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? suggestion = null,
+  }) {
+    return _then(_$RemoveSuggestionImpl(
+      suggestion: null == suggestion
+          ? _value.suggestion
+          : suggestion // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveSuggestionImpl implements _RemoveSuggestion {
+  const _$RemoveSuggestionImpl({this.suggestion = ""});
+
+  @override
+  @JsonKey()
+  final String suggestion;
+
+  @override
+  String toString() {
+    return 'HomeEvent.removeSuggestion(suggestion: $suggestion)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveSuggestionImpl &&
+            (identical(other.suggestion, suggestion) ||
+                other.suggestion == suggestion));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, suggestion);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveSuggestionImplCopyWith<_$RemoveSuggestionImpl> get copyWith =>
+      __$$RemoveSuggestionImplCopyWithImpl<_$RemoveSuggestionImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String suggestion) removeSuggestion,
+    required TResult Function(String? q) fetch,
+    required TResult Function() fetchMore,
+  }) {
+    return removeSuggestion(suggestion);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String suggestion)? removeSuggestion,
+    TResult? Function(String? q)? fetch,
+    TResult? Function()? fetchMore,
+  }) {
+    return removeSuggestion?.call(suggestion);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String suggestion)? removeSuggestion,
+    TResult Function(String? q)? fetch,
+    TResult Function()? fetchMore,
+    required TResult orElse(),
+  }) {
+    if (removeSuggestion != null) {
+      return removeSuggestion(suggestion);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_RemoveSuggestion value) removeSuggestion,
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_FetchMore value) fetchMore,
+  }) {
+    return removeSuggestion(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_RemoveSuggestion value)? removeSuggestion,
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_FetchMore value)? fetchMore,
+  }) {
+    return removeSuggestion?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_RemoveSuggestion value)? removeSuggestion,
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_FetchMore value)? fetchMore,
+    required TResult orElse(),
+  }) {
+    if (removeSuggestion != null) {
+      return removeSuggestion(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveSuggestion implements HomeEvent {
+  const factory _RemoveSuggestion({final String suggestion}) =
+      _$RemoveSuggestionImpl;
+
+  String get suggestion;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RemoveSuggestionImplCopyWith<_$RemoveSuggestionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -263,6 +431,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String suggestion) removeSuggestion,
     required TResult Function(String? q) fetch,
     required TResult Function() fetchMore,
   }) {
@@ -273,6 +442,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String suggestion)? removeSuggestion,
     TResult? Function(String? q)? fetch,
     TResult? Function()? fetchMore,
   }) {
@@ -283,6 +453,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String suggestion)? removeSuggestion,
     TResult Function(String? q)? fetch,
     TResult Function()? fetchMore,
     required TResult orElse(),
@@ -297,6 +468,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_RemoveSuggestion value) removeSuggestion,
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_FetchMore value) fetchMore,
   }) {
@@ -307,6 +479,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_RemoveSuggestion value)? removeSuggestion,
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_FetchMore value)? fetchMore,
   }) {
@@ -317,6 +490,7 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_RemoveSuggestion value)? removeSuggestion,
     TResult Function(_Fetch value)? fetch,
     TResult Function(_FetchMore value)? fetchMore,
     required TResult orElse(),
@@ -382,6 +556,7 @@ class _$FetchMoreImpl implements _FetchMore {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String suggestion) removeSuggestion,
     required TResult Function(String? q) fetch,
     required TResult Function() fetchMore,
   }) {
@@ -392,6 +567,7 @@ class _$FetchMoreImpl implements _FetchMore {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String suggestion)? removeSuggestion,
     TResult? Function(String? q)? fetch,
     TResult? Function()? fetchMore,
   }) {
@@ -402,6 +578,7 @@ class _$FetchMoreImpl implements _FetchMore {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String suggestion)? removeSuggestion,
     TResult Function(String? q)? fetch,
     TResult Function()? fetchMore,
     required TResult orElse(),
@@ -416,6 +593,7 @@ class _$FetchMoreImpl implements _FetchMore {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_RemoveSuggestion value) removeSuggestion,
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_FetchMore value) fetchMore,
   }) {
@@ -426,6 +604,7 @@ class _$FetchMoreImpl implements _FetchMore {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_RemoveSuggestion value)? removeSuggestion,
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_FetchMore value)? fetchMore,
   }) {
@@ -436,6 +615,7 @@ class _$FetchMoreImpl implements _FetchMore {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_RemoveSuggestion value)? removeSuggestion,
     TResult Function(_Fetch value)? fetch,
     TResult Function(_FetchMore value)? fetchMore,
     required TResult orElse(),
@@ -457,25 +637,26 @@ mixin _$HomeState {
   ErrorModel? get error => throw _privateConstructorUsedError;
   int get total => throw _privateConstructorUsedError;
   List<PixabayImage>? get data => throw _privateConstructorUsedError;
+  Set<String>? get suggestions => throw _privateConstructorUsedError;
   String get lastQ => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool loading, ErrorModel? error, int total,
-            List<PixabayImage>? data, String lastQ)
+            List<PixabayImage>? data, Set<String>? suggestions, String lastQ)
         homeState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool loading, ErrorModel? error, int total,
-            List<PixabayImage>? data, String lastQ)?
+            List<PixabayImage>? data, Set<String>? suggestions, String lastQ)?
         homeState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool loading, ErrorModel? error, int total,
-            List<PixabayImage>? data, String lastQ)?
+            List<PixabayImage>? data, Set<String>? suggestions, String lastQ)?
         homeState,
     required TResult orElse(),
   }) =>
@@ -514,6 +695,7 @@ abstract class $HomeStateCopyWith<$Res> {
       ErrorModel? error,
       int total,
       List<PixabayImage>? data,
+      Set<String>? suggestions,
       String lastQ});
 }
 
@@ -536,6 +718,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? error = freezed,
     Object? total = null,
     Object? data = freezed,
+    Object? suggestions = freezed,
     Object? lastQ = null,
   }) {
     return _then(_value.copyWith(
@@ -555,6 +738,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<PixabayImage>?,
+      suggestions: freezed == suggestions
+          ? _value.suggestions
+          : suggestions // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
       lastQ: null == lastQ
           ? _value.lastQ
           : lastQ // ignore: cast_nullable_to_non_nullable
@@ -576,6 +763,7 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       ErrorModel? error,
       int total,
       List<PixabayImage>? data,
+      Set<String>? suggestions,
       String lastQ});
 }
 
@@ -596,6 +784,7 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? total = null,
     Object? data = freezed,
+    Object? suggestions = freezed,
     Object? lastQ = null,
   }) {
     return _then(_$HomeStateImpl(
@@ -615,6 +804,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<PixabayImage>?,
+      suggestions: freezed == suggestions
+          ? _value._suggestions
+          : suggestions // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
       lastQ: null == lastQ
           ? _value.lastQ
           : lastQ // ignore: cast_nullable_to_non_nullable
@@ -631,8 +824,10 @@ class _$HomeStateImpl implements _HomeState {
       this.error = null,
       this.total = 0,
       final List<PixabayImage>? data = const [],
+      final Set<String>? suggestions = const <String>{},
       this.lastQ = ""})
-      : _data = data;
+      : _data = data,
+        _suggestions = suggestions;
 
   @override
   @JsonKey()
@@ -654,13 +849,24 @@ class _$HomeStateImpl implements _HomeState {
     return EqualUnmodifiableListView(value);
   }
 
+  final Set<String>? _suggestions;
+  @override
+  @JsonKey()
+  Set<String>? get suggestions {
+    final value = _suggestions;
+    if (value == null) return null;
+    if (_suggestions is EqualUnmodifiableSetView) return _suggestions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(value);
+  }
+
   @override
   @JsonKey()
   final String lastQ;
 
   @override
   String toString() {
-    return 'HomeState.homeState(loading: $loading, error: $error, total: $total, data: $data, lastQ: $lastQ)';
+    return 'HomeState.homeState(loading: $loading, error: $error, total: $total, data: $data, suggestions: $suggestions, lastQ: $lastQ)';
   }
 
   @override
@@ -672,12 +878,20 @@ class _$HomeStateImpl implements _HomeState {
             (identical(other.error, error) || other.error == error) &&
             (identical(other.total, total) || other.total == total) &&
             const DeepCollectionEquality().equals(other._data, _data) &&
+            const DeepCollectionEquality()
+                .equals(other._suggestions, _suggestions) &&
             (identical(other.lastQ, lastQ) || other.lastQ == lastQ));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, loading, error, total,
-      const DeepCollectionEquality().hash(_data), lastQ);
+  int get hashCode => Object.hash(
+      runtimeType,
+      loading,
+      error,
+      total,
+      const DeepCollectionEquality().hash(_data),
+      const DeepCollectionEquality().hash(_suggestions),
+      lastQ);
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -691,32 +905,32 @@ class _$HomeStateImpl implements _HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool loading, ErrorModel? error, int total,
-            List<PixabayImage>? data, String lastQ)
+            List<PixabayImage>? data, Set<String>? suggestions, String lastQ)
         homeState,
   }) {
-    return homeState(loading, error, total, data, lastQ);
+    return homeState(loading, error, total, data, suggestions, lastQ);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool loading, ErrorModel? error, int total,
-            List<PixabayImage>? data, String lastQ)?
+            List<PixabayImage>? data, Set<String>? suggestions, String lastQ)?
         homeState,
   }) {
-    return homeState?.call(loading, error, total, data, lastQ);
+    return homeState?.call(loading, error, total, data, suggestions, lastQ);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool loading, ErrorModel? error, int total,
-            List<PixabayImage>? data, String lastQ)?
+            List<PixabayImage>? data, Set<String>? suggestions, String lastQ)?
         homeState,
     required TResult orElse(),
   }) {
     if (homeState != null) {
-      return homeState(loading, error, total, data, lastQ);
+      return homeState(loading, error, total, data, suggestions, lastQ);
     }
     return orElse();
   }
@@ -756,6 +970,7 @@ abstract class _HomeState implements HomeState {
       final ErrorModel? error,
       final int total,
       final List<PixabayImage>? data,
+      final Set<String>? suggestions,
       final String lastQ}) = _$HomeStateImpl;
 
   @override
@@ -766,6 +981,8 @@ abstract class _HomeState implements HomeState {
   int get total;
   @override
   List<PixabayImage>? get data;
+  @override
+  Set<String>? get suggestions;
   @override
   String get lastQ;
 

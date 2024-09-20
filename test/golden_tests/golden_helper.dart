@@ -6,6 +6,8 @@ import 'package:golden_toolkit/golden_toolkit.dart';
 import 'models/labeled_device_builder.dart';
 import 'models/scenario.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 enum Themes { light, dark }
 
 /// return a [LabeledDeviceBuilder] with a scenario rendered on all device sizes
@@ -87,12 +89,11 @@ Future<void> pumpDeviceBuilderWithLocalizationsAndTheme(
           ? ThemeData.light(useMaterial3: true)
           : ThemeData.dark(useMaterial3: true),
       localizations: const [
+        ...AppLocalizations.localizationsDelegates
         // AppI18n.delegate,
         // GlobalMaterialLocalizations.delegate,
       ],
-      // localeOverrides: I18n.supportedLocales,
-      //     ? TestappTheme.buildTheme(DesignSystem.light())
-      //     : TestappTheme.buildTheme(DesignSystem.dark()),
+      // localeOverrides: I18n.supportedLocales ?
     );
 
 /// Wraps a [DeviceBuilder] in a [materialAppWrapper] using any of the

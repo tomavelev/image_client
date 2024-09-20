@@ -7,6 +7,7 @@ class HomeState with _$HomeState {
     @Default(null) ErrorModel? error,
     @Default(0) int total,
     @Default([]) List<PixabayImage>? data,
+    @Default(<String>{}) Set<String>? suggestions,
     @Default("") String lastQ,
   }) = _HomeState;
 }

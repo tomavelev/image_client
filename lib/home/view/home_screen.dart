@@ -46,10 +46,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: SearchField(
-            onTap: (value) {
-              context.read<HomeBloc>().add(HomeEvent.fetch(q: value));
-            },
+          title: BlocSelector<HomeBloc, HomeState, Set<String>>(
+            selector: (state) => state.suggestions ?? <String>{},
+            builder: (context, state) => SearchField(
+              onTap: (value) =>
+                  context.read<HomeBloc>().add(HomeEvent.fetch(q: value)),
+              suggestions: state.toList(),
+              onUnTap: (suggestion) => context
+                  .read<HomeBloc>()
+                  .add(HomeEvent.removeSuggestion(suggestion: suggestion)),
+            ),
           ),
           actions: [
             Padding(

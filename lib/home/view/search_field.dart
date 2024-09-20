@@ -1,38 +1,54 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SearchField extends StatefulWidget {
+class SearchField extends StatelessWidget {
   final String initialValue;
   final Function(String) onTap;
+  final Function(String) onUnTap;
+  final List<String> suggestions;
 
   const SearchField({
     super.key,
     required this.onTap,
     this.initialValue = "",
+    required this.suggestions,
+    required this.onUnTap,
   });
 
   @override
-  State<SearchField> createState() => _SearchFieldState();
-}
-
-class _SearchFieldState extends State<SearchField> {
-  late TextEditingController _textEditingController;
-
-  @override
-  void initState() {
-    _textEditingController = TextEditingController(text: widget.initialValue);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _textEditingController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => TextField(
-        controller: _textEditingController,
-        onSubmitted: (value) => widget.onTap(value),
+  Widget build(BuildContext context) => Autocomplete<String>(
+        fieldViewBuilder:
+            (context, textEditingController, focusNode, onFieldSubmitted) =>
+                TextField(
+          controller: textEditingController,
+          focusNode: focusNode,
+          onSubmitted: (value) => onTap(value),
+        ),
+        initialValue: TextEditingValue(
+          text: initialValue,
+        ),
+        optionsBuilder: (textEditingValue) => suggestions.where(
+          (element) => element.contains(textEditingValue.text),
+        ),
+        onSelected: (option) => onTap(option),
+        optionsViewBuilder: (context, onSelected, options) {
+          var list = options.toList();
+          return Container(
+            color: Colors.white,
+            child: ListView.builder(
+              itemBuilder: (context, index) => ListTile(
+                title: InkWell(
+                  child: Text(list[index]),
+                  onTap: () => onSelected(list[index]),
+                ),
+                trailing: InkWell(
+                  child: const Icon(Icons.delete_forever),
+                  onTap: () => onUnTap(list[index]),
+                ),
+              ),
+              itemCount: list.length,
+            ),
+          );
+        },
       );
 }
