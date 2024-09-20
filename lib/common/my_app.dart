@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_client/common/model/pixabay_image.dart';
 import 'package:image_client/detail/di/detail_page.dart';
 import 'package:image_client/home/di/home_page.dart';
@@ -30,6 +31,8 @@ class RouterMaterialApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           darkTheme: ThemeData.dark(
             useMaterial3: true,
           ),

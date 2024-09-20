@@ -36,7 +36,7 @@ The app's code is organized in layers
 - Views
 - Global DI
 - Routing
-- (TODO) I18n
+- I18n (execute 'flutter gen-l10n' after each translation change (in lib/l10n/*.arb)) 
 
 The organization is inspired by the [Rx Bloc](https://pub.dev/packages/rx_bloc) ecosystem with few
 replacements.

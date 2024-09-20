@@ -6,6 +6,7 @@ import 'package:image_client/common/views/bottom_loader.dart';
 import 'package:image_client/common/views/image_grid_view.dart';
 import 'package:image_client/home/bloc/home_bloc.dart';
 import 'package:image_client/home/view/search_field.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -67,8 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 builder: (context, state) {
                   if (state.data != null) {
                     if (state.data!.isEmpty && state.loading == false) {
-                      return const Center(
-                        child: Text("No Images Found"),
+                      return Center(
+                        child: Text(AppLocalizations.of(context)!.noImages),
                       );
                     }
                     return ImageGridView(
