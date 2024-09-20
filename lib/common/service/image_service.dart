@@ -6,8 +6,8 @@ class ImageService {
   final ImageRepository _imageRepository;
 
   ImageService({
-    required ImageRepository galleryRepository,
-  }) : _imageRepository = galleryRepository;
+    required ImageRepository imageRepository,
+  }) : _imageRepository = imageRepository;
 
   Future<ImageSearchResponse> search({
     int page = 1,

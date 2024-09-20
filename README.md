@@ -36,3 +36,18 @@ The app's code is organized in layers
 - Global DI
 - Routing
 - (TODO) I18n
+
+The organization is inspired by the [Rx Bloc](https://pub.dev/packages/rx_bloc) ecosystem with few replacements.
+- [GetIt](https://pub.dev/packages/get_it) is used for DI instead of [provider](https://pub.dev/packages/provider)
+- [BloC](https://pub.dev/packages/bloc)  is used instead of the [flutter_rx_bloc](https://pub.dev/packages/flutter_rx_bloc)
+- it uses [freezed](https://pub.dev/packages/freezed) for from/to json, equals, copyWith 
+- ...
+
+## Testing
+
+The Project includes samples for 
+- Widget Tests
+- Golden Tests
+- Unit Tests
+- BloC Tests (TODO)
+

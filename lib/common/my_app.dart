@@ -30,6 +30,9 @@ class RouterMaterialApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
+          darkTheme: ThemeData.dark(
+            useMaterial3: true,
+          ),
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,

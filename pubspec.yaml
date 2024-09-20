@@ -20,6 +20,8 @@ dependencies:
   logger: ^2.4.0  # for logging purpose
   get_it: ^7.7.0
   cached_network_image: ^3.3.1
+  mockito: ^5.4.4
+  golden_toolkit: ^0.15.0
 dev_dependencies:
   retrofit_generator: '>=8.0.0 <10.0.0' # for Dart 3.3 use ^9.0.0
   bloc_test: ^9.0.0

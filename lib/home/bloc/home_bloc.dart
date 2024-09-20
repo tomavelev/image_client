@@ -17,7 +17,7 @@ part 'home_bloc.freezed.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final ImageService _imageService;
 
-  HomeBloc(this._imageService) : super(HomeState.homeState()) {
+  HomeBloc(this._imageService) : super(const HomeState.homeState()) {
     on<HomeEvent>((event, emit) {});
     on<_Fetch>(_fetch);
     on<_FetchMore>(_fetchMore);

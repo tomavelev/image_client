@@ -1,7 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../model/pixabay_image.dart';
+import 'custom_cached_network_image.dart';
 
 class ImageTile extends StatelessWidget {
   final PixabayImage image;
@@ -21,7 +21,7 @@ class ImageTile extends StatelessWidget {
                     "/details",
                     arguments: image,
                   ),
-          child: CachedNetworkImage(
+          child: CustomCachedNetworkImage(
             imageUrl: image.previewURL ?? '',
           ),
         ),

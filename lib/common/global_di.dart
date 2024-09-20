@@ -15,6 +15,8 @@ class GlobalDI extends StatefulWidget {
   final Widget child;
   final Env env;
 
+  static bool isTest = false;
+
   const GlobalDI({
     super.key,
     required this.child,
@@ -41,7 +43,7 @@ class _GlobalDIState extends State<GlobalDI> {
   }
 
   void _network() {
-    getIt.registerSingleton(Dio()
+    getIt.registerSingleton<Dio>(Dio()
       ..interceptors.addAll([
         AuthInterceptor(key: widget.env.apiKey),
         LogInterceptor(
@@ -62,9 +64,11 @@ class _GlobalDIState extends State<GlobalDI> {
   }
 
   void _datasource() {
-    getIt.registerSingleton(ImageDataSource(
-      api: getIt.get(),
-    ));
+    if (!GlobalDI.isTest) {
+      getIt.registerSingleton(ImageDataSource(
+        api: getIt.get(),
+      ));
+    }
   }
 
   void _repositories() {
@@ -80,7 +84,7 @@ class _GlobalDIState extends State<GlobalDI> {
     getIt.registerSingleton(FavoriteService());
 
     getIt.registerSingleton(ImageService(
-      galleryRepository: getIt.get(),
+      imageRepository: getIt.get(),
     ));
   }
 

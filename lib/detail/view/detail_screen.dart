@@ -1,7 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_client/detail/bloc/detail_bloc.dart';
+
+import '../../common/views/custom_cached_network_image.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key});
@@ -58,7 +59,7 @@ class DetailScreen extends StatelessWidget {
               children: [
                 if (state.image!.title != null) Text(state.image!.title!),
                 Expanded(
-                    child: CachedNetworkImage(
+                    child: CustomCachedNetworkImage(
                         imageUrl: state.image?.largeImageURL ?? '')),
               ],
             ),

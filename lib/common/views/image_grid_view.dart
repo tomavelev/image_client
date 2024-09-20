@@ -18,18 +18,18 @@ class ImageGridView extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Scrollbar(
-      controller: scrollController,
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200),
-        itemBuilder: (context, index) => itemBuilder != null
-            ? itemBuilder!(context, data[index])
-            : ImageTile(data[index]),
+  Widget build(BuildContext context) => Scrollbar(
         controller: scrollController,
-        itemCount: data.length,
-      ),
-    );
-  }
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200),
+          itemBuilder: (context, index) => itemBuilder != null
+              ? itemBuilder!(context, data[index])
+              : ImageTile(
+                  data[index],
+                ),
+          controller: scrollController,
+          itemCount: data.length,
+        ),
+      );
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_client/common/extensions/translate_extensions.dart';
 import 'package:image_client/common/model/error/error_model.dart';
-import 'package:image_client/common/model/pixabay_image.dart';
 import 'package:image_client/common/views/bottom_loader.dart';
 import 'package:image_client/common/views/image_grid_view.dart';
 import 'package:image_client/home/bloc/home_bloc.dart';
@@ -64,17 +63,16 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Column(
           children: [
             Expanded(
-              child: BlocSelector<HomeBloc, HomeState, List<PixabayImage>?>(
-                selector: (state) => state.data,
+              child: BlocBuilder<HomeBloc, HomeState>(
                 builder: (context, state) {
-                  if (state != null) {
-                    if (state.isEmpty) {
+                  if (state.data != null) {
+                    if (state.data!.isEmpty && state.loading == false) {
                       return const Center(
                         child: Text("No Images Found"),
                       );
                     }
                     return ImageGridView(
-                      data: state,
+                      data: state.data!,
                       scrollController: _scrollController,
                     );
                   }
