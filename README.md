@@ -2,7 +2,7 @@
 
 A new Flutter project for consuming images and marking them as favorites.
 
-As Image Source the project uses pixabay.
+As Image Source - the project uses pixabay.
 
 ## Getting Started
 
@@ -17,9 +17,9 @@ As Image Source the project uses pixabay.
 The App consists of:
 
 - Home Screen - with the feature to search, go to favorites, go to details on image tab
+- Recent Searches Functionality - inside the home search field
 - Favorites Screen - very similar to Home with focus on fav images
 - Details Screen - Bigger view and more details about the image. Feature - add/remove from fav.
-- (TODO) Recent Searches
 
 ## App Architecture
 
@@ -27,17 +27,19 @@ The App consists of:
 
 The app's code is organized in layers
 
-- Data Access
-- Repositories
-- Services
-- BloCs
-- Local DIs for Blocs
-- Views
+- Data Access - Wrappers for the Information Sources - external to the App and - the Flutter Engine
+- Repositories - Wrapper for the Data Access - so any exceptions, external (from flutter, or from a
+  package) data models are mapped to internal and known objects
+- Services - In many cases services are just thin bridge between the view+bloc and the data sources.
+  Here is a perfect play for business logic with strict expected input -> output, so they could be wrapped in unit test
+- BloCs - Controllers of the state of the screens 
+- Local DIs for Blocs 
+- Views / Components / Widgets
 - Global DI
 - Routing
-- I18n (execute 'flutter gen-l10n' after each translation change (in lib/l10n/*.arb)) 
+- I18n (execute 'flutter gen-l10n' after each translation change (in lib/l10n/*.arb))
 
-The organization is inspired by the [Rx Bloc](https://pub.dev/packages/rx_bloc) ecosystem with few
+The code structure is inspired by the [Rx Bloc](https://pub.dev/packages/rx_bloc) ecosystem with few
 replacements.
 
 - [GetIt](https://pub.dev/packages/get_it) is used for DI instead
