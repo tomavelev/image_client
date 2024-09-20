@@ -1,6 +1,7 @@
 # image_client
 
-A new Flutter project for consuming images and marking them as favorites - after being request - Bootstrapped for a day (and a half).
+A new Flutter project for consuming images and marking them as favorites - after being request -
+Bootstrapped for a day (and a half).
 
 As Image Source the project uses pixabay.
 
@@ -25,7 +26,7 @@ The App consists of:
 
 ![App Architecture](architecture.png)
 
-The app's code is organized in layers 
+The app's code is organized in layers
 
 - Data Access
 - Repositories
@@ -37,17 +38,24 @@ The app's code is organized in layers
 - Routing
 - (TODO) I18n
 
-The organization is inspired by the [Rx Bloc](https://pub.dev/packages/rx_bloc) ecosystem with few replacements.
-- [GetIt](https://pub.dev/packages/get_it) is used for DI instead of [provider](https://pub.dev/packages/provider)
-- [BloC](https://pub.dev/packages/bloc)  is used instead of the [flutter_rx_bloc](https://pub.dev/packages/flutter_rx_bloc)
-- it uses [freezed](https://pub.dev/packages/freezed) for from/to json, equals, copyWith 
+The organization is inspired by the [Rx Bloc](https://pub.dev/packages/rx_bloc) ecosystem with few
+replacements.
+
+- [GetIt](https://pub.dev/packages/get_it) is used for DI instead
+  of [provider](https://pub.dev/packages/provider)
+- [BloC](https://pub.dev/packages/bloc)  is used instead of
+  the [flutter_rx_bloc](https://pub.dev/packages/flutter_rx_bloc)
+- it uses [freezed](https://pub.dev/packages/freezed) for from/to json, equals, copyWith
 - ...
 
 ## Testing
 
-The Project includes samples for 
-- Widget Tests
-- Golden Tests
-- Unit Tests
-- BloC Tests (TODO)
+The Project includes samples for
+
+- Widget Tests - for testing the presence in the tree - the UI elements you are building.
+- Golden Tests - test pixel perfect designs
+- Unit Tests - test small functionality that has strict input-output requirements. Great Examples
+  may be - calculations, encryption, etc
+- BloC Tests - - In many cases the business logic is hard to be extracted as Services. Unit tests -
+  verify expected state of **BlocState** during BloC Events.
 

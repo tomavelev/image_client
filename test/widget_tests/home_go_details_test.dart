@@ -17,7 +17,6 @@ import 'package:image_client/common/views/image_grid_view.dart';
 import 'package:image_client/common/views/image_tile.dart';
 import 'package:image_client/detail/view/detail_screen.dart';
 import 'package:image_client/home/view/home_screen.dart';
-import 'package:image_client/main.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
