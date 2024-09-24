@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:image_client/detail/bloc/detail_bloc.dart';
 import 'package:image_client/detail/view/detail_screen.dart';
-import 'package:image_client/main.dart';
 
 import '../../common/model/pixabay_image.dart';
 
@@ -14,7 +14,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => DetailBloc(getIt())..add(DetailEvent.started(image)),
+      create: (_) => DetailBloc(GetIt.I())..add(DetailEvent.started(image)),
       child: const DetailScreen(),
     );
   }

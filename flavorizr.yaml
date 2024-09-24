@@ -1,0 +1,21 @@
+flavors:
+  prod:
+    app:
+      name: "Image Client"
+
+    android:
+      applicationId: "com.programtom.image_client"
+    ios:
+      bundleId: "com.programtom.image_client"
+    macos:
+      bundleId: "com.programtom.image_client"
+  dev:
+    app:
+      name: "Image Client Dev"
+
+    android:
+      applicationId: "com.programtom.image_client.dev"
+    ios:
+      bundleId: "com.programtom.image_client.dev"
+    macos:
+      bundleId: "com.programtom.image_client.dev"

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:image_client/home/bloc/home_bloc.dart';
 import 'package:image_client/home/view/home_screen.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_client/main.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BlocProvider(
         create: (_) => HomeBloc(
-          getIt.get(),
+          GetIt.I.get(),
         )..add(const HomeEvent.fetch()),
         child: const HomeScreen(),
       );
