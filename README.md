@@ -52,7 +52,7 @@ replacements for less code generation and simplicity.
 
 ## Testing
 
-The Project includes samples for
+The Project includes test samples for
 
 - [Widget Tests](https://github.com/tomavelev/image_client/tree/master/test/widget_tests) - for testing the presence in the tree - the UI elements you are building.
 - [Golden Tests](https://github.com/tomavelev/image_client/tree/master/test/golden_tests) - test pixel perfect designs
@@ -61,3 +61,12 @@ The Project includes samples for
 - [BloC Tests](https://github.com/tomavelev/image_client/tree/master/test/bloc_tests) - In many cases the business logic is hard to be extracted as Services. Bloc tests -
   verify expected state of **BlocState** during/before/after BloC Events.
 
+## Flavors 
+
+The app demonstrates Flavor/Environment setup 
+
+- Dev
+- Prod
+
+included in the [following commit](https://github.com/tomavelev/image_client/commit/69777eb9ed79e95bc179d2ee51a0f4bd939747ba)
+ also explained in the article [here](https://programtom.com/dev/2024/09/24/run-modes-environments-and-flavors-in-flutter/).
